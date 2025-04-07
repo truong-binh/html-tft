@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Follower</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    cursor: none; /* Ẩn con trỏ chuột để chỉ thấy dấu chấm */
+}
+
+#follower {
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none; /* Để dấu chấm không cản trở các sự kiện chuột khác */
+    transform: translateX(-50%); /* Dịch chuyển dấu chấm để nó ở giữa tọa độ con trỏ */
+}
+
+</style>
+<body>
+    <div id="follower"></div>
+</body>
+<script>
+    document.addEventListener('mousemove', function(e) {
+    var follower = document.getElementById('follower');
+    follower.style.left = e.clientX + 'px';
+    follower.style.top = e.clientY + 'px';
+});
+
+</script>
+</html>
